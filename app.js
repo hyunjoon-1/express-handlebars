@@ -3,7 +3,7 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const app = express();
-// css 정적 파일을 가져오기위한 코드 
+// css 정적 파일을 가져오기위한 코드 //
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 //PORT 3000 설정
