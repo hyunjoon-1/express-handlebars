@@ -13,7 +13,10 @@ app.set('views', './views');
 
 // get방식으로 home 출력하기
 app.get('/', (req, res) => {
-    res.render('home');
+  // render메서드로 데이터 렌더링
+  res.status(200).render('home', {
+      first: "Hello, ", second: "World!"
+    });
 });
 
 app.listen(PORT, () => {
