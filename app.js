@@ -5,10 +5,15 @@ const { engine } = require('express-handlebars');
 const app = express();
 //PORT 3000 설정
 const PORT = 3000;
-
-app.engine('handlebars', engine());
+// handlebars 확장자를 hbs로 변경(extname으로 설정. 기본은 handlebars)
+app.engine(
+  'hbs',
+  engine({
+    extname: 'hbs'
+  })
+);
 //express에 환경설정하기. view엔진에 handlebars를 사용한다.
-app.set('view engine', 'handlebars');
+app.set('view engine', 'hbs');
 app.set('views', './views');
 
 // get방식으로 home 출력하기
