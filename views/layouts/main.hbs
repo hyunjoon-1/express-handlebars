@@ -1,4 +1,20 @@
-{{!-- main의 body에 들어갈 내용 --}}
-<h1>handlebars practice</h1>
-{{!-- 서버에서 전달받은 데이터가 들어감. 또한 {{}} 중괄호 2개임에 유의할것. --}}
-<p>{{first}}{{second}}</p>
+{{!-- 기본적인 html 구조, {{{}}}} 중괄호 3개이므로 주의할것! --}}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Basic Handlebars</title>
+  {{!-- h1태그에 red컬러를 입혀보았다. --}}
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  {{> header}}
+
+  {{{body}}}
+
+  {{> footer}}
+</body>
+
+</html>

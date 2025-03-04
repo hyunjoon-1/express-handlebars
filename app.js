@@ -3,13 +3,19 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const app = express();
+// css 정적 파일을 가져오기위한 코드 
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 //PORT 3000 설정
 const PORT = 3000;
 // handlebars 확장자를 hbs로 변경(extname으로 설정. 기본은 handlebars)
 app.engine(
   'hbs',
   engine({
-    extname: 'hbs'
+    extname: 'hbs',
+    defaultLayout: 'main',
+    layoutsDir: 'views/layouts',
+    partialsDir: 'views/partials'
   })
 );
 //express에 환경설정하기. view엔진에 handlebars를 사용한다.
@@ -20,7 +26,7 @@ app.set('views', './views');
 app.get('/', (req, res) => {
   // render메서드로 데이터 렌더링
   res.status(200).render('home', {
-      first: "Hello, ", second: "World!"
+      first: "Hello, ", second: "World!", name: "Hyunjoon Choi"
     });
 });
 
